@@ -25,28 +25,26 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Card({ item }) {
-  const [check, setCheck] = useState(false);
-
-  function ChangeState() {
-    setCheck(!check);
+export default class Card extends React.Component {
+  state = {
+    check: false,
+  };
+  handleChange() {}
+  render() {
+    return (
+      <View>
+        <CheckBox
+          title={this.props.name}
+          iconRight
+          iconType="material"
+          checkedIcon="clear"
+          uncheckedIcon="add"
+          checkedColor="red"
+          checked={this.state.check}
+          id={this.props._id}
+          onPress={() => this.setState({ check: !this.state.check })}
+        />
+      </View>
+    );
   }
-  return (
-    <View>
-      <CheckBox
-        title={item.name}
-        iconRight
-        iconType="material"
-        checkedIcon="clear"
-        uncheckedIcon="add"
-        checkedColor="red"
-        checked={check}
-        id={item._id}
-        onPress={ChangeState}
-      />
-    </View>
-  );
 }
-
-
-//{ objItems.map(item => <Card item={item} /> }

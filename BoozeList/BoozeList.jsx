@@ -6,15 +6,8 @@ import {
   TouchableWithoutFeedback,
   ToolbarAndroidBase,
 } from "react-native";
-import Card from "./Cards/Card";
-
-class Item {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-    this._id = Math.random() * 1236;
-  }
-}
+import Card, { checkedId } from "./Cards/Card";
+import Item from './Item'
 
 const vodka = new Item("Vodka", 3300);
 const IPA = new Item("IPA", 280);
@@ -29,13 +22,30 @@ const objItems = items.map((piece) => {
   const _id = piece._id;
   return { name, price, _id };
 });
+
 //objItems.push({name: "SÖrike", price: "ezeröt", _id: "12321312312213"})
 //TODO: egyelőre csöves a megoldas az item hozzáadásnál
+
 export default class BoozeList extends React.Component {
+  state = {
+    checkedList: []
+  }
+  handleChange(val) {
+    this.setState({checkedList: [...checkedList, val]})
+    console.log(this.state.checkedList)
+  }
   render() {
     return (
       <View>
-        {objItems.map(x => <Card item={x}/>)}
+        {objItems.map((x) => (
+          <Card
+           key={x._id}
+           id={x._id}
+           item={x}
+           name={x.name}
+           handleChange={this.handleChange}
+          />
+        ))}
       </View>
     );
   }
