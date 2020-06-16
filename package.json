@@ -10,8 +10,12 @@
   "dependencies": {
     "expo": "~37.0.3",
     "react": "~16.9.0",
+    "react-checklist": "^1.0.9",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "react-native-collapsible": "^1.5.2",
+    "react-native-elements": "^2.0.2",
+    "react-native-select-multiple": "^2.1.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
