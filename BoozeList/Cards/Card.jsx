@@ -28,8 +28,16 @@ const styles = StyleSheet.create({
 export default class Card extends React.Component {
   state = {
     check: false,
+    _id: 0,
   };
-  handleChange() {}
+  handleChange() {
+    this.setState({ check: !this.state.check });
+    this.setState({ _id: this.props._id });
+    this.props.updateData(this.state._id);
+  }
+  componentDidMount() {
+    this.setState({_id: this.props._id})
+  }
   render() {
     return (
       <View>
@@ -42,7 +50,7 @@ export default class Card extends React.Component {
           checkedColor="red"
           checked={this.state.check}
           id={this.props._id}
-          onPress={() => this.setState({ check: !this.state.check })}
+          onPress={() => this.handleChange()}
         />
       </View>
     );

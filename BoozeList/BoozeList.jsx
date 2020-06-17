@@ -30,9 +30,10 @@ export default class BoozeList extends React.Component {
   state = {
     checkedList: []
   }
-  handleChange(val) {
-    this.setState({checkedList: [...checkedList, val]})
-    console.log(this.state.checkedList)
+  updateData(data) {
+    console.log(data)
+    //this.setState({checkedList: [...checkedList, val]})
+    //console.log(this.state.checkedList)
   }
   render() {
     return (
@@ -43,7 +44,7 @@ export default class BoozeList extends React.Component {
            id={x._id}
            item={x}
            name={x.name}
-           handleChange={this.handleChange}
+           updateData={ val => this.updateData(val) }
           />
         ))}
       </View>
