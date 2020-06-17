@@ -1,10 +1,8 @@
-import React from 'react'
-import { AsyncStorage } from 'react-native';
 class Item {
     constructor(name, price) {
         this.name = name;
         this.price = price;
-        this._id = price + 150
+        this._id = price + 152
     }
 }
 
@@ -20,6 +18,7 @@ const objItems = items.map((piece) => {
   const name = piece.name;
   const price = piece.price;
   const _id = piece._id;
+
   return { name, price, _id };
 });
 
