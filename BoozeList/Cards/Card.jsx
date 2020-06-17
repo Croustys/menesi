@@ -26,16 +26,16 @@ const styles = StyleSheet.create({
 export default class Card extends React.Component {
   state = {
     check: false,
-    _id: 0,
+    price: 0,
   };
   handleChange() {
     this.setState({ check: !this.state.check });
     
-    const { _id, check } = this.state;
-    this.props.updateData(_id, !check);
+    const { price, check } = this.state;
+    this.props.updateData(price, !check);
   }
   componentDidMount() {
-    this.setState({ _id: this.props.id });
+    this.setState({ price: this.props.price });
   }
   render() {
     return (

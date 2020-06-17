@@ -24,7 +24,7 @@ const objItems = items.map((piece) => {
   return { name, price, _id };
 });
 
-//objItems.push({name: "Sörike", price: "ezeröt", _id: "12321312312213"})
+//objItems.push({name: "Sörike", price: 350})
 //TODO: egyelőre csöves a megoldas az item hozzáadásnál
 
 export default class BoozeList extends React.Component {
@@ -49,8 +49,7 @@ export default class BoozeList extends React.Component {
     if (Array.isArray(checkedList) && checkedList.length) {
       const totalAmount = checkedList.reduce((acc, val) => acc + val);
       this.setState({ total: totalAmount });
-
-    }
+    }else this.setState({total: 0})
   }
   render() {
     return (
@@ -59,12 +58,13 @@ export default class BoozeList extends React.Component {
           <Card
             key={x._id}
             id={x._id}
+            price={x.price}
             item={x}
             name={x.name}
             updateData={(val, isChecked) => this.updateData(val, isChecked)}
           />
         ))}
-        <TotalPrice kocsi={150} value={this.state.total} />
+        <TotalPrice value={this.state.total} />
       </View>
     );
   }
