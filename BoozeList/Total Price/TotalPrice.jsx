@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   ToolbarAndroidBase,
 } from "react-native";
+import styles from "../Styles/styles";
 
 export default class TotalPrice extends Component {
   render() {
@@ -16,18 +17,3 @@ export default class TotalPrice extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-  },
-  textH1: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: "40px",
-    textAlign: "center",
-    fontFamily: "sans-serif",
-  },
-});

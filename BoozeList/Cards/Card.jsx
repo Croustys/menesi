@@ -1,27 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CheckBox } from "react-native-elements";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  ToolbarAndroidBase,
-} from "react-native";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-  },
-  textH1: {
-    color: '#fff',
-    fontWeight: "bold",
-    marginTop: '40px',
-    textAlign: 'center',
-    fontFamily: 'sans-serif'
-  }
-});
+import { StyleSheet, View, AsyncStorage } from "react-native";
 
 export default class Card extends React.Component {
   state = {
@@ -30,7 +9,7 @@ export default class Card extends React.Component {
   };
   handleChange() {
     this.setState({ check: !this.state.check });
-    
+
     const { price, check } = this.state;
     this.props.updateData(price, !check);
   }
@@ -48,7 +27,7 @@ export default class Card extends React.Component {
           checkedColor="red"
           checked={this.state.check}
           onPress={() => this.handleChange()}
-          onLongPress={() => console.log('HÁTE BRÉTÚRÓ')}
+          onLongPress={() => console.log("HÁTE BRÉTÚRÓ")}
         />
       </View>
     );
