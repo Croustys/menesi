@@ -32,11 +32,12 @@ export default class Card extends React.Component {
   };
   handleChange() {
     this.setState({ check: !this.state.check });
-    this.setState({ _id: this.props._id });
-    this.props.updateData(this.state._id);
+    
+    const { _id, check } = this.state;
+    this.props.updateData(_id, !check);
   }
   componentDidMount() {
-    this.setState({_id: this.props._id})
+    this.setState({ _id: this.props.id });
   }
   render() {
     return (
@@ -49,7 +50,6 @@ export default class Card extends React.Component {
           uncheckedIcon="add"
           checkedColor="red"
           checked={this.state.check}
-          id={this.props._id}
           onPress={() => this.handleChange()}
         />
       </View>

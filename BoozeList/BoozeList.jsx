@@ -6,8 +6,8 @@ import {
   TouchableWithoutFeedback,
   ToolbarAndroidBase,
 } from "react-native";
-import Card, { checkedId } from "./Cards/Card";
-import Item from './Item'
+import Card from "./Cards/Card";
+import Item from "./Item";
 
 const vodka = new Item("Vodka", 3300);
 const IPA = new Item("IPA", 280);
@@ -23,28 +23,36 @@ const objItems = items.map((piece) => {
   return { name, price, _id };
 });
 
-//objItems.push({name: "SÖrike", price: "ezeröt", _id: "12321312312213"})
+//objItems.push({name: "Sörike", price: "ezeröt", _id: "12321312312213"})
 //TODO: egyelőre csöves a megoldas az item hozzáadásnál
 
 export default class BoozeList extends React.Component {
   state = {
-    checkedList: []
+    checkedList: [],
+  };
+  updateData(val, isChecked) {
+    console.log(val, isChecked)
+    if(isChecked) {
+      this.state.checkedList.push(val)
+    }
+    else{
+    }
+    console.log(this.state.checkedList)
   }
-  updateData(data) {
-    console.log(data)
-    //this.setState({checkedList: [...checkedList, val]})
-    //console.log(this.state.checkedList)
+  renderTotalValue() {
+    const total = this.state.checkedList.reduce((acc, val) => acc + val)
+    console.log(total)
   }
   render() {
     return (
       <View>
         {objItems.map((x) => (
           <Card
-           key={x._id}
-           id={x._id}
-           item={x}
-           name={x.name}
-           updateData={ val => this.updateData(val) }
+            key={x._id}
+            id={x._id}
+            item={x}
+            name={x.name}
+            updateData={(val, isChecked) => this.updateData(val, isChecked)}
           />
         ))}
       </View>
