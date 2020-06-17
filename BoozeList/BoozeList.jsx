@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Card from "./Cards/Card";
 import Item from "./Item";
+import TotalPrice from "./Total Price/TotalPrice";
 
 const vodka = new Item("Vodka", 3300);
 const IPA = new Item("IPA", 280);
@@ -29,22 +30,27 @@ const objItems = items.map((piece) => {
 export default class BoozeList extends React.Component {
   state = {
     checkedList: [],
+    total: 0,
   };
   updateData(val, isChecked) {
     const { checkedList } = this.state;
     if (isChecked) {
       checkedList.push(val);
     } else {
-      const index = checkedList.findIndex(indexOf => indexOf == val);
+      const index = checkedList.findIndex((indexOf) => indexOf == val);
       checkedList.splice(index, 1);
     }
 
-    //console.log(checkedList);
     this.renderTotalValue();
   }
   renderTotalValue() {
-    const total = this.state.checkedList.reduce((acc, val) => acc + val);
-    console.log(total);
+    const { checkedList } = this.state;
+
+    if (Array.isArray(checkedList) && checkedList.length) {
+      const totalAmount = checkedList.reduce((acc, val) => acc + val);
+      this.setState({ total: totalAmount });
+
+    }
   }
   render() {
     return (
@@ -58,6 +64,7 @@ export default class BoozeList extends React.Component {
             updateData={(val, isChecked) => this.updateData(val, isChecked)}
           />
         ))}
+        <TotalPrice kocsi={150} value={this.state.total} />
       </View>
     );
   }
@@ -72,8 +79,8 @@ const styles = StyleSheet.create({
   textH1: {
     color: "#fff",
     fontWeight: "bold",
-    marginTop: "5vh",
-    fontSize: "1.55em",
+    marginTop: "40px",
     textAlign: "center",
+    fontFamily: "sans-serif",
   },
 });

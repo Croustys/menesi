@@ -9,15 +9,18 @@ import {
 } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+    alignItems: 'center',
+  },
   textH1: {
-    color: "#fff",
+    color: '#fff',
     fontWeight: "bold",
-    marginTop: "5vh",
-    fontSize: "1.55em",
-  },
-  multi: {
-    marginTop: "5vh",
-  },
+    marginTop: '40px',
+    textAlign: 'center',
+    fontFamily: 'sans-serif'
+  }
 });
 
 export default class Card extends React.Component {
@@ -39,7 +42,6 @@ export default class Card extends React.Component {
       <View>
         <CheckBox
           title={this.props.name}
-          iconRight
           iconType="material"
           checkedIcon="clear"
           uncheckedIcon="add"

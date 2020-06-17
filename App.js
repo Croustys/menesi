@@ -8,7 +8,7 @@ export default function App() {
     <View style={styles.container}>
       <View>
         <Text style={styles.textH1}>Ménesi Produkciós Iroda</Text>
-        <Text style={styles.textH1}>Pénz kalkulátor</Text>
+        <Text style={styles.calc}>Pénz kalkulátor</Text>
         <BoozeList />
       </View>
       <View></View>
@@ -25,8 +25,16 @@ const styles = StyleSheet.create({
   textH1: {
     color: '#fff',
     fontWeight: "bold",
-    marginTop: '5vh',
-    fontSize: '1.55em',
-    textAlign: 'center'
+    marginTop: '20%',
+    textAlign: 'center',
+    fontFamily: 'sans-serif'
+  },
+  calc: {
+    color: '#fff',
+    fontWeight: "bold",
+    marginTop: '20%',
+    textAlign: 'center',
+    fontFamily: 'sans-serif',
+    marginBottom: '5%'
   }
 });
