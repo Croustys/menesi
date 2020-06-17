@@ -9,11 +9,6 @@ import {
 } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-  },
   textH1: {
     color: "#fff",
     fontWeight: "bold",
@@ -51,6 +46,7 @@ export default class Card extends React.Component {
           checkedColor="red"
           checked={this.state.check}
           onPress={() => this.handleChange()}
+          onLongPress={() => console.log('HÁTE BRÉTÚRÓ')}
         />
       </View>
     );

@@ -31,17 +31,20 @@ export default class BoozeList extends React.Component {
     checkedList: [],
   };
   updateData(val, isChecked) {
-    console.log(val, isChecked)
-    if(isChecked) {
-      this.state.checkedList.push(val)
+    const { checkedList } = this.state;
+    if (isChecked) {
+      checkedList.push(val);
+    } else {
+      const index = checkedList.findIndex(indexOf => indexOf == val);
+      checkedList.splice(index, 1);
     }
-    else{
-    }
-    console.log(this.state.checkedList)
+
+    //console.log(checkedList);
+    this.renderTotalValue();
   }
   renderTotalValue() {
-    const total = this.state.checkedList.reduce((acc, val) => acc + val)
-    console.log(total)
+    const total = this.state.checkedList.reduce((acc, val) => acc + val);
+    console.log(total);
   }
   render() {
     return (
