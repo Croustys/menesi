@@ -6,7 +6,7 @@ export default class TotalPrice extends React.Component {
   render() {
     return (
       <View>
-        <Text style={styles.textH1}>{this.props.value}</Text>
+        <Text style={styles.totalPrice}>{this.props.value}</Text>
       </View>
     );
   }

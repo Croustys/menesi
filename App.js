@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
-import BoozeList from './BoozeList/BoozeList'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import List from './Components/List'
 
 export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
         <Text style={styles.textH1}>Ménesi Produkciós Iroda</Text>
         <Text style={styles.calc}>Pénz kalkulátor</Text>
-        <BoozeList />
-      </View>
-      <View></View>
+        <List />
+        <Text style={styles.calc}>HOL VAN A LIST</Text>
+
     </View>
   );
 }

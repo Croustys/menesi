@@ -1,10 +1,4 @@
-class Item {
-    constructor(name, price) {
-        this.name = name;
-        this.price = price;
-        this._id = price + 152
-    }
-}
+import Item from "./ItemClass";
 
 const vodka = new Item("Vodka", 3300);
 const IPA = new Item("IPA", 280);
@@ -14,7 +8,7 @@ const sprite = new Item("Sprite", 300);
 
 const items = [vodka, IPA, LOWY, MEGGYES, sprite];
 
-const objItems = items.map((piece) => {
+export const objItems = items.map((piece) => {
   const name = piece.name;
   const price = piece.price;
   const _id = piece._id;

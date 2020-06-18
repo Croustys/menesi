@@ -1,8 +1,6 @@
 import React from "react";
 import { Card, objItems, Item, TotalPrice } from "./CompExports/index";
-import { View,Button, AsyncStorage } from "react-native";
-
-//TODO: add & remove button a listhez
+import { View, Button } from "react-native";
 
 export default class BoozeList extends React.Component {
   state = {
@@ -25,47 +23,9 @@ export default class BoozeList extends React.Component {
       this.setState({ total: 0 });
     }
   }
-
-  componentDidMount = async () => {
-    try {
-      for (const item of objItems) {
-        await AsyncStorage.setItem(item._id, [item.name, item.price]);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-
-    try {
-      for (const item of objItems) {
-        const name = await AsyncStorage.getItem(item._id);
-        if (name !== null) {
-          console.log(name);
-        }
-      }
-    } catch (error) {
-      console.log("ERR: " + error);
-    }
-  };
-  async handleButtonpress() {
-    try{
-      await AsyncStorage.setItem('newItem', ['VODKASPRITE', 450])
-    }catch(e){
-      console.log(`Err: ${e}`)
-    }
-
-    try{
-      const newItem = await AsyncStorage.getItem('newItem')
-      
-      if(newItem !== null) {
-        objItems.push({name: newItem[0], price: newItem[1], _id: 123})
-        this.state.checkedList.push(newItem)
-      }
-    }
-    catch(e) {
-      console.log(`Error: ${e}`)
-    }
+  handleButtonClick() {
+    this.props.navigation.navigate('Else')
   }
-
   render() {
     return (
       <View>
@@ -78,12 +38,7 @@ export default class BoozeList extends React.Component {
           />
         ))}
         <TotalPrice value={this.state.total} />
-        <Button
-          onPress={this.handleButtonpress}
-          title="KATT"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
+        <Button title="KATT LÉCCI" onPress={() => this.handleButtonClick} />
       </View>
     );
   }

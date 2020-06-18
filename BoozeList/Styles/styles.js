@@ -12,4 +12,11 @@ export default StyleSheet.create({
       textAlign: "center",
       fontFamily: "sans-serif",
     },
+    totalPrice: {
+      color: '#fff',
+      marginTop: '40px',
+      marginBottom: '25px',
+      textAlign: 'center',
+      fontWeight: 'bold'
+    }
   });
