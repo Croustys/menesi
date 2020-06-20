@@ -18,5 +18,8 @@ export default StyleSheet.create({
       marginBottom: '25px',
       textAlign: 'center',
       fontWeight: 'bold'
+    },
+    addBoozeFC: {
+      color: '#fff'
     }
   });

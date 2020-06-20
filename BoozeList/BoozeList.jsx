@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, objItems, Item, TotalPrice } from "./CompExports/index";
 import { View, Button } from "react-native";
+import styles from "./Styles/styles";
 
 export default class BoozeList extends React.Component {
   state = {
@@ -9,6 +10,7 @@ export default class BoozeList extends React.Component {
   };
   updateData(val, isChecked) {
     const { checkedList } = this.state;
+
     if (isChecked) {
       checkedList.push(val);
     } else {
@@ -24,7 +26,7 @@ export default class BoozeList extends React.Component {
     }
   }
   handleButtonClick() {
-    this.props.navigation.navigate('Else')
+    this.props.navigation.navigate('Add Booze')
   }
   render() {
     return (
@@ -38,7 +40,7 @@ export default class BoozeList extends React.Component {
           />
         ))}
         <TotalPrice value={this.state.total} />
-        <Button title="KATT LÉCCI" onPress={() => this.handleButtonClick} />
+        <Button title="Add Booze" onPress={() => this.handleButtonClick()} />
       </View>
     );
   }

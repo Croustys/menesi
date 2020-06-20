@@ -14,9 +14,9 @@ export default class List extends React.Component {
   render() {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="Individual" component={BoozeList} />
-          <Stack.Screen name="Home" component={AddBooze} />
+          <Stack.Screen name="Booze Picker" component={BoozeList} />
+          <Stack.Screen name="Add Booze" component={AddBooze} />
         </Stack.Navigator>
-    );
+    );  
   }
 }
