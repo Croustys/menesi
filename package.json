@@ -8,10 +8,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.5.2",
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.5.1",
+    "cocoapods-cli": "^0.1.2",
     "expo": "~37.0.3",
+    "link": "^0.1.5",
     "react": "~16.9.0",
     "react-checklist": "^1.0.9",
     "react-dom": "~16.9.0",
@@ -21,9 +24,11 @@
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.5",
+    "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^2.8.0",
     "react-native-select-multiple": "^2.1.0",
     "react-native-web": "~0.11.7",
+    "react-navigation": "^4.3.9",
     "react-navigation-stack": "^2.7.0"
   },
   "devDependencies": {

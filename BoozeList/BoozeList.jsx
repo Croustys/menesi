@@ -26,11 +26,19 @@ export default class BoozeList extends React.Component {
     }
   }
   handleButtonClick() {
-    this.props.navigation.navigate('Add Booze')
+    this.props.navigation.navigate("Add Booze");
+  }
+  handleRefresh() {
+    const { itemName, itemPrice } = this.props.route.params;
+    const newItem = new Item(itemName, itemPrice);
+
+    
+    objItems.push(newItem)
+    this.updateData(parseInt(itemPrice), false)
   }
   render() {
     return (
-      <View>
+      <View style={styles.boozeListStyle}>
         {objItems.map((x) => (
           <Card
             key={x._id}
@@ -40,7 +48,16 @@ export default class BoozeList extends React.Component {
           />
         ))}
         <TotalPrice value={this.state.total} />
-        <Button title="Add Booze" onPress={() => this.handleButtonClick()} />
+        <Button
+          styles={styles.buttonMargin}
+          title="Add Booze"
+          onPress={() => this.handleButtonClick()}
+        />
+        <Button
+          styles={styles.buttonMargin}
+          title="RefreshList"
+          onPress={() => this.handleRefresh()}
+        />
       </View>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
-import Style from "../Styles/styles";
 import styles from "../Styles/styles";
 import { Input } from "react-native-elements";
 
@@ -11,10 +10,7 @@ export default class AddBooze extends Component {
   };
   handleClick() {
     const { name, price } = this.state;
-    this.props.navigation.navigate("Booze Picker", {
-      name: name,
-      price: price,
-    });
+    this.props.navigation.navigate("Booze Picker", { itemName: name, itemPrice: price});
   }
   render() {
     return (
