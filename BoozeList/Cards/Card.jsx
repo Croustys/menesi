@@ -13,6 +13,9 @@ export default class Card extends React.Component {
     const { price, check } = this.state;
     this.props.updateData(price, !check);
   }
+  delCard() {
+    this.props.handleDelete(this.props.id)
+  }
   componentDidMount() {
     this.setState({ price: this.props.price });
   }
@@ -27,7 +30,7 @@ export default class Card extends React.Component {
           checkedColor="red"
           checked={this.state.check}
           onPress={() => this.handleChange()}
-          onLongPress={() => console.log("HÁTE BRÉTÚRÓ")}
+          onLongPress={() => this.delCard()}
         />
       </View>
     );

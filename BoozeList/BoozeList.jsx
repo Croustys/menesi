@@ -28,13 +28,21 @@ export default class BoozeList extends React.Component {
   handleButtonClick() {
     this.props.navigation.navigate("Add Booze");
   }
+  //TODO: delete button
+  handleDelete(key) {
+    const index = objItems.findIndex((idOf) => idOf._id === key);
+
+    objItems.splice(index, 1);
+    this.updateData(objItems[index].value, false)
+  }
   handleRefresh() {
     const { itemName, itemPrice } = this.props.route.params;
     const newItem = new Item(itemName, itemPrice);
 
-    
-    objItems.push(newItem)
-    this.updateData(parseInt(itemPrice), false)
+    objItems.push(newItem);
+    console.log(objItems);
+    const priceTag = parseInt(itemPrice);
+    this.updateData(priceTag, false);
   }
   render() {
     return (
@@ -42,9 +50,11 @@ export default class BoozeList extends React.Component {
         {objItems.map((x) => (
           <Card
             key={x._id}
+            id={x._id}
             price={x.price}
             name={x.name}
             updateData={(val, isChecked) => this.updateData(val, isChecked)}
+            handleDelete={(x) => this.handleDelete(x)}
           />
         ))}
         <TotalPrice value={this.state.total} />

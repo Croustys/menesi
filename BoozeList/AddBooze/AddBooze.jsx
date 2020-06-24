@@ -10,7 +10,10 @@ export default class AddBooze extends Component {
   };
   handleClick() {
     const { name, price } = this.state;
-    this.props.navigation.navigate("Booze Picker", { itemName: name, itemPrice: price});
+    this.props.navigation.navigate("Booze Picker", {
+      itemName: name,
+      itemPrice: price,
+    });
   }
   render() {
     return (
@@ -23,7 +26,8 @@ export default class AddBooze extends Component {
         />
         <Text style={styles.textH1}>Price</Text>
         <Input
-          onChange={(e) => this.setState({ price: e.target.value })}
+          keyboardType="numeric"
+          onChange={(e) => this.setState({ price: parseInt(e.target.value) })}
           placeholder="Price"
           style={styles.addBoozeFC}
         />
