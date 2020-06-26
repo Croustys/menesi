@@ -25,24 +25,26 @@ export default class BoozeList extends React.Component {
       this.setState({ total: 0 });
     }
   }
+
   handleButtonClick() {
     this.props.navigation.navigate("Add Booze");
   }
-  //TODO: delete button
+
   handleDelete(key) {
     const index = objItems.findIndex((idOf) => idOf._id === key);
 
     objItems.splice(index, 1);
-    this.updateData(objItems[index].value, false)
+    const objectExsists = objItems[index].value ? objItems[index].value : null;
+    this.updateData(objectExsists, false);
   }
   handleRefresh() {
     const { itemName, itemPrice } = this.props.route.params;
+
     const newItem = new Item(itemName, itemPrice);
 
     objItems.push(newItem);
-    console.log(objItems);
-    const priceTag = parseInt(itemPrice);
-    this.updateData(priceTag, false);
+
+    this.updateData(itemPrice, false);
   }
   render() {
     return (

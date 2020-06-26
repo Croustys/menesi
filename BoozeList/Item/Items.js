@@ -8,7 +8,7 @@ const sprite = new Item("Sprite", 300);
 
 const items = [vodka, IPA, LOWY, MEGGYES, sprite];
 
-export const objItems = items.map((piece) => {
+const objItems = items.map((piece) => {
   const name = piece.name;
   const price = piece.price;
   const _id = piece._id;

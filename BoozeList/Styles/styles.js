@@ -12,7 +12,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     //marginTop: "40px",
     textAlign: "center",
-    fontFamily: "sans-serif",
+    //fontFamily: "sans-serif",
   },
   totalPrice: {
     color: '#fff',
@@ -29,5 +29,14 @@ export default StyleSheet.create({
   },
   boozeListStyle: {
     backgroundColor: 'black',
+    minHeight: '100%',
+  },
+  tInput: {
+    height: '10%',
+    width: '80%',
+    borderBottomWidth : 1.0,
+    fontSize: 40,
+    marginBottom: 50,
+    marginTop: 50,
   }
 });
