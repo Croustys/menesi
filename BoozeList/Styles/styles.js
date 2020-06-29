@@ -10,14 +10,14 @@ export default StyleSheet.create({
   textH1: {
     color: "#fff",
     fontWeight: "bold",
-    //marginTop: "40px",
+    margin: 15,
     textAlign: "center",
     //fontFamily: "sans-serif",
   },
   totalPrice: {
     color: '#fff',
-    //marginTop: '40px',
-    //marginBottom: '25px',
+    marginTop: 40,
+    marginBottom: 25,
     textAlign: 'center',
     fontWeight: 'bold'
   },
@@ -34,9 +34,13 @@ export default StyleSheet.create({
   tInput: {
     height: '10%',
     width: '80%',
-    borderBottomWidth : 1.0,
+    borderBottomWidth: 1.0,
     fontSize: 40,
     marginBottom: 50,
     marginTop: 50,
+  },
+  btnD: {
+    height: 20,
+    fontSize: 15,
   }
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, objItems, Item, TotalPrice } from "./CompExports/index";
-import { View, Button } from "react-native";
+import { View, Button, Text } from "react-native";
 import styles from "./Styles/styles";
 
 export default class BoozeList extends React.Component {
@@ -11,7 +11,7 @@ export default class BoozeList extends React.Component {
   updateData(val, isChecked) {
     const { checkedList } = this.state;
 
-    if (isChecked) {
+    if (isChecked && val !== null) {
       checkedList.push(val);
     } else {
       const index = checkedList.findIndex((indexOf) => indexOf == val);
@@ -33,22 +33,25 @@ export default class BoozeList extends React.Component {
   handleDelete(key) {
     const index = objItems.findIndex((idOf) => idOf._id === key);
 
+    const objectExists = objItems[index].price ? objItems[index].price : null;
+
     objItems.splice(index, 1);
-    const objectExsists = objItems[index].value ? objItems[index].value : null;
-    this.updateData(objectExsists, false);
+
+    this.updateData(objectExists, false);
   }
+
   handleRefresh() {
     const { itemName, itemPrice } = this.props.route.params;
 
-    const newItem = new Item(itemName, itemPrice);
-
-    objItems.push(newItem);
+    objItems.push(new Item(itemName, itemPrice));
 
     this.updateData(itemPrice, false);
   }
   render() {
     return (
       <View style={styles.boozeListStyle}>
+        <Text style={styles.textH1}>Ménesi Produkciós Iroda</Text>
+        <Text style={styles.textH1}>Alkohol kalkulátor</Text>
         {objItems.map((x) => (
           <Card
             key={x._id}
@@ -61,12 +64,12 @@ export default class BoozeList extends React.Component {
         ))}
         <TotalPrice value={this.state.total} />
         <Button
-          styles={styles.buttonMargin}
+          styles={styles.btnD}
           title="Add Booze"
           onPress={() => this.handleButtonClick()}
         />
         <Button
-          styles={styles.buttonMargin}
+          styles={styles.btnD}
           title="RefreshList"
           onPress={() => this.handleRefresh()}
         />
